@@ -20,6 +20,7 @@ function AuthPage() {
         setSignInFormData,
         signUpFormData,
         setSignUpFormData,
+        handleRegisterUser
     } = useContext(AuthContext)
     
     function handelTabChange(value) {
@@ -31,7 +32,7 @@ function AuthPage() {
     }
 
     function checkIfSignUpFormIsValid(){
-        return signUpFormData  && signInFormData.userName !== "" && signInFormData.userEmail !== "" && signInFormData.password !== ""
+        return signUpFormData  && signUpFormData.userName !== "" && signUpFormData.userEmail !== "" && signUpFormData.password !== ""
     }
 
     console.log(signInFormData)
@@ -90,6 +91,7 @@ function AuthPage() {
                     formData={signUpFormData}
                     setFormData={setSignUpFormData}
                     isButtonDisabled = {!checkIfSignUpFormIsValid()}
+                    handleSubmit={handleRegisterUser}
                     />
                 </CardContent>
                 </Card>
